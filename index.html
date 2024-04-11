@@ -50,27 +50,30 @@
       let now = new Date();
 
       let hours = now.getHours();
+      //console.log(hours)
       let minutes = now.getMinutes();
       let seconds = now.getSeconds();
-      
-      if(hours>=0){
+       let totalMins = (hours*60)+minutes 
+      if(hours>=0 && totalMins <1170){
       hours+=4
       minutes+=30
       }
-      if(hours>=19 && minutes>=30 ){
+     
+      //console.log(totalMins)
+      if(totalMins >= 1170){
       hours-=19 
       minutes-=30
       }
 			      // Add leading zeros if necessary
-			console.log(((hours*60)+minutes)/90)
-      console.log(minutes)
+			//console.log(hours)//*60)+minutes)/90)
+      //console.log(minutes)
       let temp = minutes
       minutes =(minutes + (hours * 60))%90
-      console.log(minutes)
+      //console.log(minutes)
       hours = Math.trunc(((hours*60)+temp)/90)
     
       //let temp = Math.trunc((minutes + (hours * 60 ))/96)
-   		hours= (hours < 10) ? '0' + hours : hours;
+   		hours= (hours < 10 && hours > 0) ? '0' + hours : hours;
       
       minutes = (minutes < 10) ? '0' + minutes : minutes;
       
